@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Zia's Mini-Me</title>
+<title>Zai's Mini-Me</title>
 <style>
   :root { --bg:#faf8f5; --fg:#222; --muted:#7a746c; --card:#fff; --line:#e7e2da; --accent:#3d5a4c; --user:#eee9e0; }
   @media (prefers-color-scheme: dark) { :root { --bg:#161513; --fg:#ece8e1; --muted:#9a948a; --card:#1f1d1a; --line:#33302b; --accent:#8fb5a0; --user:#2a2723; } }
@@ -39,7 +39,7 @@
 <body>
 <main>
   <header>
-    <h1 id="title">Zia's Mini-Me</h1>
+    <h1 id="title">Zai's Mini-Me</h1>
     <span class="label" id="label">AI</span>
   </header>
   <div id="log"></div>
@@ -51,14 +51,14 @@
     <input type="text" id="input" placeholder="Ask anything, or tell me what you're working on" autocomplete="off" maxlength="1500">
     <button class="send" id="send">Send</button>
   </div>
-  <div class="note"><button type="button" id="leave">Leave a note for Zia</button></div>
+  <div class="note"><button type="button" id="leave">Leave a note for Zai</button></div>
 </form>
 
 <dialog id="dlg">
-  <p>This sends our conversation to Zia, along with how to reach you. She will read it herself.</p>
+  <p>This sends our conversation to Zai, along with how to reach you. She will read it herself.</p>
   <input type="text" id="contact" placeholder="Email or other contact" maxlength="200">
   <textarea id="extra" rows="3" placeholder="Anything you'd like to add (optional)" maxlength="1000"></textarea>
-  <div class="btns"><button type="button" id="cancel">Cancel</button><button type="button" class="send" id="go" style="padding:8px 16px">Send to Zia</button></div>
+  <div class="btns"><button type="button" id="cancel">Cancel</button><button type="button" class="send" id="go" style="padding:8px 16px">Send to Zai</button></div>
   <p id="status" style="margin:10px 0 0"></p>
 </dialog>
 
@@ -116,7 +116,7 @@ fetch('/api/config').then(r => r.json()).then(c => {
   document.title = c.title;
   add('bot', c.greeting);
   (c.starters || []).forEach(s => { const b = document.createElement('button'); b.textContent = s; b.onclick = () => ask(s); startersEl.appendChild(b); });
-}).catch(() => add('bot', 'Hi, I\'m Zia\'s Mini-Me (an AI). Ask me anything.'));
+}).catch(() => add('bot', 'Hi, I\'m Zai\'s Mini-Me (an AI). Ask me anything.'));
 
 // Handoff dialog (visitor-triggered)
 const dlg = document.getElementById('dlg'), status = document.getElementById('status');

@@ -1,6 +1,6 @@
 # Mini-Me
 
-A website agent that talks to visitors in Zia's voice, from her own writing and projects. TDF DesComp Project 1.
+A website agent that talks to visitors in Zai's voice, from her own writing and projects. TDF DesComp Project 1.
 Behavior is specified in `system-card/` (versioned), not in code.
 
 ## Run

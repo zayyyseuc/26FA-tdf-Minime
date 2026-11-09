@@ -1,4 +1,4 @@
-// Visitor-triggered only. Sends Zia: (a) the visitor's own words, verbatim (deterministic),
+// Visitor-triggered only. Sends Zai: (a) the visitor's own words, verbatim (deterministic),
 // (b) an analysis that quotes those words and only uses skills present in the knowledge base (probabilistic).
 const fs = require('fs');
 const path = require('path');
@@ -7,9 +7,9 @@ const { sanitizeMessages, rateLimited, clientIp } = require('../lib/guard');
 const { retrieve } = require('../lib/retrieve');
 const { chatOnce } = require('../lib/llm');
 
-const ANALYSIS_PROMPT = `You prepare a handoff note for Zia from a website visitor's own messages.
+const ANALYSIS_PROMPT = `You prepare a handoff note for Zai from a website visitor's own messages.
 1. Quote, in the visitor's exact words, whatever they said about their work, business, or needs. If they said nothing about it, write "No business described."
-2. For each quoted need, list which of Zia's skills/methods could apply, using the visitor's wording, and ONLY skills that appear in the excerpts. If none clearly apply, say so.
+2. For each quoted need, list which of Zai's skills/methods could apply, using the visitor's wording, and ONLY skills that appear in the excerpts. If none clearly apply, say so.
 Do not invent needs or skills. Be brief.`;
 
 async function deliver(text) {
@@ -49,7 +49,7 @@ module.exports = async (req, res) => {
     const kb = excerpts.map(e => e.text).join('\n---\n') || '(none)';
     analysis = await chatOnce({
       messages: [
-        { role: 'system', content: `${ANALYSIS_PROMPT}\n\nExcerpts about Zia:\n${kb}` },
+        { role: 'system', content: `${ANALYSIS_PROMPT}\n\nExcerpts about Zai:\n${kb}` },
         { role: 'user', content: `Visitor messages:\n${visitorWords}` },
       ],
       temperature: 0.2,
@@ -58,7 +58,7 @@ module.exports = async (req, res) => {
     console.error('[handoff analysis]', err.message);
   }
 
-  const text = `New note for Zia\nContact: ${contact}\n${note ? `Note: ${note}\n` : ''}\nVisitor's words (verbatim):\n${visitorWords}\n\nAnalysis (AI-generated, check against the quotes):\n${analysis}`;
+  const text = `New note for Zai\nContact: ${contact}\n${note ? `Note: ${note}\n` : ''}\nVisitor's words (verbatim):\n${visitorWords}\n\nAnalysis (AI-generated, check against the quotes):\n${analysis}`;
   try {
     await deliver(text);
     res.json({ ok: true });
