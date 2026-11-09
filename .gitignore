@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+**/.DS_Store
+.claude/
+# never commit raw vault material; only curated, reviewed files go in corpus/
+vault-raw/
