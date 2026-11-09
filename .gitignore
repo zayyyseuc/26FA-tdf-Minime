@@ -7,3 +7,5 @@ node_modules/
 .claude/
 # never commit raw vault material; only curated, reviewed files go in corpus/
 vault-raw/
+data/
+evals/results/*.tmp

@@ -2,7 +2,18 @@
   "name": "mini-me",
   "version": "0.1.0",
   "description": "TDF DesComp Project 1 — Mini-Me: building system behavior",
+  "private": true,
   "type": "commonjs",
-  "scripts": { "start": "node src/server.js", "index": "node -e \"require('./src/indexer').indexAll()\"" },
-  "dependencies": { "dotenv": "^17.4.2", "express": "^5.2.1", "openai": "^6.36.0", "vectra": "^0.14.0" }
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js",
+    "sync": "node scripts/sync-corpus.js",
+    "index": "node scripts/build-index.js",
+    "eval": "node evals/run.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "openai": "^6.36.0"
+  }
 }

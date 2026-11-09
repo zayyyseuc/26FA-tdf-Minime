@@ -1,0 +1,10 @@
+{
+  "title": "Zia's Mini-Me",
+  "aiLabel": "AI · built from Zia's writing and projects",
+  "greeting": "Hi, I'm Zia's Mini-Me. I've read what she writes and I know her projects. Ask me about her work, or tell me what you're working on and I'll say where our ideas might meet.",
+  "starters": [
+    "What do you work on?",
+    "What's an idea you keep coming back to?",
+    "I work in a different field. Where could your methods help?"
+  ]
+}
